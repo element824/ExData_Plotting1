@@ -4,7 +4,7 @@ install.packages("sqldf", dependencies = TRUE)
 library("sqldf")
 newdataset<- read.csv.sql("household_power_consumption.txt", sep = ";", sql = "select * from file where Date = '2/2/2007' or Date = '1/2/2007' ", eol = "\n")
 
-datetime <- paste(as.Date(newdataset$Date,format = "%d/%m/%y"), newdataset$Time)
+datetime <- paste(as.Date(newdataset$Date,format = "%d/%m/%Y"), newdataset$Time)
 newdataset$Datetime <- as.POSIXct(datetime)
 
 par(mfcol = c(2,2))
